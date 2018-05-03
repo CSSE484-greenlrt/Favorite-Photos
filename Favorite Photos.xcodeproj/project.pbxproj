@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		029A88B50BDCD5CBE6405951 /* Pods_Favorite_Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20F70B1E6E44AE4421F10283 /* Pods_Favorite_Photos.framework */; };
 		946A4E5B2098BC170029E5A0 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946A4E5A2098BC170029E5A0 /* ImageUtils.swift */; };
+		946A4E5D2098C2EF0029E5A0 /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946A4E5C2098C2EF0029E5A0 /* PhotoViewCell.swift */; };
 		949E491020976D1A009E46C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949E490F20976D1A009E46C2 /* AppDelegate.swift */; };
 		949E491520976D1B009E46C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 949E491320976D1B009E46C2 /* Main.storyboard */; };
 		949E491720976D36009E46C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 949E491620976D36009E46C2 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		3FA1AE918B8A1CEE1FB0F191 /* Pods-Favorite Photos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favorite Photos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Favorite Photos/Pods-Favorite Photos.debug.xcconfig"; sourceTree = "<group>"; };
 		8FEAB5C9AFADD0D81158FA1B /* Pods-Favorite Photos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favorite Photos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Favorite Photos/Pods-Favorite Photos.release.xcconfig"; sourceTree = "<group>"; };
 		946A4E5A2098BC170029E5A0 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
+		946A4E5C2098C2EF0029E5A0 /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
 		949E490C20976D1A009E46C2 /* Favorite Photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Favorite Photos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		949E490F20976D1A009E46C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		949E491420976D1B009E46C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				949E4923209771F3009E46C2 /* FavoritePhotoViewController.swift */,
 				949E492520977217009E46C2 /* PhotoListViewController.swift */,
 				946A4E5A2098BC170029E5A0 /* ImageUtils.swift */,
+				946A4E5C2098C2EF0029E5A0 /* PhotoViewCell.swift */,
 			);
 			path = "Favorite Photos";
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				949E4924209771F3009E46C2 /* FavoritePhotoViewController.swift in Sources */,
 				949E492620977217009E46C2 /* PhotoListViewController.swift in Sources */,
 				946A4E5B2098BC170029E5A0 /* ImageUtils.swift in Sources */,
+				946A4E5D2098C2EF0029E5A0 /* PhotoViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,7 +385,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 582V4DL5CW;
 				INFOPLIST_FILE = "Favorite Photos/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.rose-hulman.greenlrt.Favorite-Photos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -397,7 +404,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 582V4DL5CW;
 				INFOPLIST_FILE = "Favorite Photos/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.rose-hulman.greenlrt.Favorite-Photos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
