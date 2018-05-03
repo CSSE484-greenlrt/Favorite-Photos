@@ -14,6 +14,9 @@ class PhotoListViewController: ImagePickerViewController, UICollectionViewDelega
     let photoCellIdentifier = "PhotoCell"
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let itemsPerRow = 2
+    let sectionInsets = UIEdgeInsets(top: 30.0, left: 10.0, bottom: 30.0, right: 10.0)
+    
     var photosStorageRef: StorageReference!
     var photosCollectionRef: CollectionReference!
     var photosListener: ListenerRegistration!
@@ -94,5 +97,22 @@ class PhotoListViewController: ImagePickerViewController, UICollectionViewDelega
                 }
             })
         }
+    }
+}
+
+extension PhotoListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let paddingSpace = sectionInsets.left * CGFloat(itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / CGFloat(itemsPerRow)
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
     }
 }
