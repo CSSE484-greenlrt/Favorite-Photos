@@ -28,6 +28,7 @@ class ImagePickerViewController: UIViewController {
     func uploadImage(_ image: UIImage) {
         print("super class does nothing, no need to even call super")
     }
+}
     
     // MARK: UIImagePicker controller delegate methods
 
