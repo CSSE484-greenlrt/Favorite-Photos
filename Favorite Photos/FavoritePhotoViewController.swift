@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class FavoritePhotoViewController: UIViewController {
+class FavoritePhotoViewController: ImagePickerViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var progressView: UIProgressView!
     
@@ -36,20 +36,9 @@ class FavoritePhotoViewController: UIViewController {
             }
         })
     }
-    
-    @IBAction func takePhoto(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePicker.sourceType = .camera
-        } else {
-            imagePicker.sourceType = .photoLibrary
-        }
-        present(imagePicker, animated:  true)
-    }
 
-func uploadImage(_ image: UIImage) {
-    guard let data = UIImagePNGRepresentation(image, 0.5) else { return }
+override func uploadImage(_ image: UIImage) {
+    guard let data = UIImageJPEGRepresentation(image, 0.5) else { return }
     
     let uploadMetadata = StorageMetadata()
     uploadMetadata.contentType = "image/jpeg"
@@ -83,23 +72,4 @@ func uploadImage(_ image: UIImage) {
         })
     }
   }
-}
-
-// MARK UIImagePicker controller delegate methods
-
-extension FavoritePhotoViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            
-            // In production I might DO this AND upload. For this demo JUST upload
-            //self.imageView.image = image // Cheat TODO: Delete this line!
-            uploadImage(image)
-        }
-        picker.dismiss(animated: true)
-    }
 }
