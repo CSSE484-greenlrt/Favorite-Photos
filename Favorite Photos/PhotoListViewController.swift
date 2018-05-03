@@ -26,7 +26,27 @@ class PhotoListViewController: ImagePickerViewController, UICollectionViewDelega
         photosCollectionRef = Firestore.firestore().collection("photos")
     }
     
-    // TODO: Add and remove a Firestore listener.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        photosListener = photosCollectionRef
+            .order(by: "created", descending: true)
+            .limit(to: 12)
+            .addSnapshotListener({ (querySnapshot, error) in
+                if let error = error {
+                    print("Error getting Firestore photos /(error.localizedDescription)")
+                }
+                if let snapshot = querySnapshot {
+                    print("Got some photos. Reload the data!")
+                    self.dataSnapshots = snapshot.documents
+                    self.collectionView.reloadData()
+                }
+            })
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        photosListener.remove()
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSnapshots.count
